@@ -31,16 +31,17 @@
                 @else
                 <div class="col-sm-3 chat_border">
                 @endif
-                    <small>{{ $chat->user->name }} {{ $chat->created_at }}</small>
+                    <small>{{ $chat->user->profile->nickname }} {{ $chat->created_at }}</small>
                     <p>{{ $chat->message }}</p>
+                    <p><img src="{{ asset('uploads')}}/{{$chat->image}}" alt="{{ $chat->image }}"></p>
                 </div>
             @endforeach
             <div class="row">
-                <div class="col-3">
-                    <input type="file" name="image" accept='image/*' onchange="previewImage(this);">
-                </div>
-                <form action="/rooms/{{ $room->id }}/chats" method="POST" class="">>
+                <form action="/rooms/{{ $room->id }}/chats" method="POST" class="" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    <div class="col-3">
+                        <input type="file" name="image" accept="image/*" onchange="previewImage(this);">
+                    </div>
                     <input type="text" name="message" class="send">
                     <button type="submit" class="send">送信</button>
                 </form>

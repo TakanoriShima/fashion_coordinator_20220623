@@ -100,15 +100,15 @@ class PostsController extends Controller
         if(\Auth::user()->role === 1){
             $room = Room::where('post_id', $post->id)->where('user_id', \Auth::id())->get()->first();
             $users = array();
-            // dd($chats);
+            $rooms = array();
         }else{ // ユーザー側
             // その投稿に回答したお店一覧
             $users = $users = $post->room_users()->get();
-            // dd($users);
+            $rooms = $post->rooms()->get();
             $room = null;
         }
         // dd($post);
-        return view('posts.show', compact('post', 'room', 'users'));
+        return view('posts.show', compact('post', 'room', 'rooms', 'users'));
         
     }
 

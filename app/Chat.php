@@ -8,7 +8,7 @@ use App\Room;
 
 class Chat extends Model
 {
-    protected $fillable = ['room_id', 'user_id', 'message'];
+    protected $fillable = ['room_id', 'user_id', 'message', 'image'];
     
     /**
      * このチャットを所有するルーム（Roomモデルとの多対1の関係を定義）

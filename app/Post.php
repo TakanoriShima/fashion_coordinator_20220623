@@ -19,7 +19,13 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
     
-    
+    /**
+     * この投稿が所有するroom一覧。（Userモデルとの1対多の関係を定義）
+     */
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
     
     /**
      * この投稿に紐づいた回答者一覧（中間テーブルを介して取得）

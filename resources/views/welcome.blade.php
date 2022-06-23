@@ -1,7 +1,7 @@
 @extends('layouts.basic')
 @section('title', 'fatching')
 @section('content')
-    @if(Auth::user())
+    @if(!Auth::check())
     <div class="top">
           <h2 class="worries">こんな悩みはありませんか？</h2>
       </div>
@@ -23,26 +23,10 @@
         <br>メッセージ機能で直接やりとりもでき、より詳しく聞くことができます！
         <br>まずは会員登録から始めましょう♪</p>
       </div>
-      <div class="box fadeIn" class="active">
+      <!--<div class="box fadeIn" class="active">-->
         <h3>
           <a href="/signup" class="btn btn-primary" class="go">GO!!</a>
         </h3>
-      </div>
-      <!--@else-->
-      <!--<main class="form-signin w-100 m-auto">-->
-      <!--<form method="POST" action="/login">-->
-      <!--  <input type="hidden" name="_token" value="{{ csrf_token() }}">-->
-      <!--  <div class="form-floating">-->
-      <!--    <input type="email" class="form-control" id="floatingInput"  name="email" placeholder="メールアドレス">-->
-      <!--  </div>-->
-      <!--  <div class="form-floating">-->
-      <!--    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="パスワード">-->
-      <!--  </div>-->
-      <!--  <button class="w-100 btn btn-lg" type="submit">サインイン</button>-->
-      <!--  <hr>-->
-      <!--  <button class="w-100 btn btn-lg" type="submit">-->
-      <!--    <a href="/signup" class="singup">新規会員登録</a></button>-->
-      <!--</form>-->
-      <!--</main>-->
-      <!--@endif-->
+      <!--</div>-->
+      @endif
 @endsection

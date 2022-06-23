@@ -36,9 +36,9 @@
             <tr>
                 <th>回答者</th>
             </tr>
-            @foreach($users as $user)
+            @foreach($rooms as $room)
             <tr>
-                <td class="respondentbox"><a href="/rooms/{{ $user->room($post->id)->id }}" class="respondent">{{ $user->name }}</a></td>
+                <td class="respondentbox"><a href="/rooms/{{ $room->id }}" class="respondent">{{ $room->user->profile->nickname }}</a></td>
             </tr>
             @endforeach
         </table>

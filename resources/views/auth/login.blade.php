@@ -12,8 +12,9 @@
           </div>
           <button class="w-100 btn btn-lg" type="submit">サインイン</button>
           <hr>
-          <button class="w-100 btn btn-lg" type="submit">
-            <a href="/signup" class="singup">新規会員登録</a></button>
         </form>
+          <!--<button class="w-100 btn btn-lg" type="submit">-->
+            <a href="/signup" class="singup w-100 btn btn-l">新規会員登録</a>
+          <!--</button>-->
       </main>
 @endsection

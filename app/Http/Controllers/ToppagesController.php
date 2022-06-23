@@ -11,6 +11,8 @@ class ToppagesController extends Controller
     // Toppage表示
     public function index()
     {
+        // Cookie::queue(Cookie::forget('count'));
+        
         $min = 1; //クッキーの有効期限（分）
         
         // クッキーからアクセスカウント値を取得
@@ -27,9 +29,10 @@ class ToppagesController extends Controller
             // 訪問回数を増やして
             $count++;
             // クッキーにアクセス回数を上書き保存
-            Cookie::queue('count', $count, 1);
+            Cookie::queue('count', $count, $min);
             // ログインにリダイレクト
             return redirect('/login');
+            // return view('welcome');
         }
     }
     
